@@ -1,0 +1,335 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+h1 {
+    font-size: 48px;
+    font-weight: lighter;
+}
+h2 {
+    font-size: 36px;
+    text-align: center;
+    font-weight: lighter;
+}
+header {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 900px;
+    background: url("../images/day9_back1.png") no-repeat;
+}
+main {
+    position: relative;
+    display: block;
+    height: 100%;
+    text-align: center;
+    z-index: 0;
+}
+.container {
+    margin: 3rem 2rem;
+}
+.container_3 {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    background: url("../images/day9_back2.png") no-repeat;
+}
+.banner form {
+    margin: 0 100px;
+    padding: 40px 0px;
+    border-radius: 5px;
+    border: 1px solid #d1d1cf;
+    z-index: 1;
+}
+.intro {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 50px;
+}
+form p {
+    font-size: 0.6rem;
+}
+.form-row {
+    text-align: center;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.form-row input {
+    color: white;
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 1rem;
+    margin-right: 2rem;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: transparent;
+}
+.polices {
+    width: 25rem;
+    float: left;
+    margin-left: 200px;
+}
+.pad {
+    width: 60%;
+    height: 400px;
+    position: absolute;
+    right: -16rem;
+    top: 100px;
+    border-radius: 35px;
+}
+.pad::after {
+    position: relative;
+    display: flex;
+}
+.pad_inner {
+    position: absolute;
+    width: 100%;
+    height: 360px;
+    left: 4rem;
+    margin-top: 20px;
+    background: url("../images/hello.jpg") no-repeat;
+    background-position: left;
+    align-items: center;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    text-align: center;
+    width: 30%;
+}
+.card-body {
+    text-align: center;
+    padding: 1.25rem;
+}
+.card-title {
+    text-align: center;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+.learn {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    word-break: break-word;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.learn-text {
+    margin-left: 1rem;
+    align-items: center;
+}
+.crew {
+    position: relative;
+    display: flex;
+    width: 410px;
+    height: 350px;
+    margin-bottom: 3rem;
+}
+.crew .mask {
+    opacity: 0;
+}
+.crew:hover .mask {
+    transition: 0.5s ease;
+    opacity: 1.0;
+}
+.crew a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.crew img {
+    width: 100%;
+    height: 100%;
+}
+.crew a:hover {
+    transform: rotate(360deg);
+    transition: 0.5s ease;
+}
+.crew h3 {
+    font-weight: normal;
+    margin-top: 120px;
+}
+/*装饰*/
+.btn {
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+ul {
+    list-style: none;
+}
+.bordered {
+    border: 1px solid #bbb!important;
+}
+.btn-white {
+    background-color: #fff;
+}
+.bg-gray {
+    text-align: center;
+    position: relative;
+    color: #d1d1cf;
+}
+.text-white {
+    color: white;
+}
+.text-center {
+    text-align: center!important;
+}
+.text-gray {
+    color: #bbb!important;
+}
+.bg-white {
+    background-color: white!important;
+}
+.mask {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,5,0.65);
+    z-index: 0;
+}
+.row-column{
+    flex-direction: column;
+}
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 200px;
+    left: 2rem;
+    border-radius: 50%;
+}
+.clear {
+    clear: both;
+}
+/*分列设置*/
+.feel {
+    width: 40%;
+}
+.feel li {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 5px;
+}
+.feel input,textarea {
+    display: flex;
+    width: 70%;
+    color: #000;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.row {
+    display: flex;
+    justify-content: space-around;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.item {
+    display: flex;
+    height: 6rem;
+    margin-bottom: 2rem;
+}
+.item-text {
+    width: 20rem;
+    margin-left: 20px;
+}
+.item-text span {
+    color: #bbb;
+}
+.icon {
+    display: flex;
+    float: left;
+    width: 60px;
+}
+.feel-icon i{
+    width: 20px;
+    height: 30px;
+    margin-right: 8px;
+}
+.icon-mobile {
+    background: url(../images/icon_mobile.png) -5px 14px no-repeat;
+    background-size: 60px auto;
+}
+.icon-check {
+    background: url(../images/icon_check.png) -5px 14px no-repeat;
+    background-size: 60px auto;
+}
+.icon-pencil {
+    background: url(../images/icon_pencil.png) -5px 14px no-repeat;
+    background-size: 60px auto;
+}
+.icon-setting {
+    background: url(../images/icon_setting.png) 0px 16px no-repeat;
+    background-size: 52px auto;
+}
+.icon-location {
+    background: url(../images/icon_location.png) no-repeat;
+    background-size: 20px;
+}
+.icon-phone {
+    background: url(../images/icon_phone.png) no-repeat;
+    background-size: 20px;
+}
+.icon-envelop {
+    background: url(../images/icon_envelop.png) 0 10px no-repeat;
+    background-size: 20px;
+}
+
+/*footer*/
+footer {
+    display: flex;
+    padding: 3rem 1rem 5rem 0;
+    justify-content: space-around;
+    background-color: #000;
+}
+footer ul{
+    display: flex;
+    width: 180px;
+}
+footer p{
+    color: white;
+}
+footer li{
+    margin: 0.75rem 0;
+}
+footer a{
+    color: #ddd5d4;
+    margin: 6px;
+    text-decoration: none;
+}
+footer a:hover{
+    color: white;
+}
