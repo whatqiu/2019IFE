@@ -3,12 +3,363 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Day12</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/day12.css">
+    <title>Hello, world!</title>
 </head>
 <body>
-<!--    header-->
-<nav style="background-color: red; position: fixed;top: 0;"><h1>46</h1></nav>
-<h1 style="background-color: yellow">465</h1>
+<!--最左侧一列要求自适应浏览器高度，左上面4个按钮相对浏览器左上角固定位置，左下方两个按钮相对浏览器左下角固定位置
+左侧第二列(蓝色背景色)导航列固定宽度，高度也是自适应浏览器高度，最下面的Monthly Goals部分的内容相对浏览器下边固定位置
+整个白色区域自适应宽度，右上方的人脸，名字部分相对浏览器右上角固定位置
+白色区域左侧列固定宽度，右侧列自适应宽度-->
+<nav class="left">
+    <ul class="menu">
+        <li class="menu-item active"><a href="#" style="background: url(images/day12-icon1.png) no-repeat"></a></li>
+        <li class="menu-item"><a href="#" style="background: url(images/day12-icon2.png) no-repeat"></a></li>
+        <li class="menu-item"><a href="#" style="background: url(images/day12-icon3.png) no-repeat"></a></li>
+        <li class="menu-item"><a href="#" style="background: url(images/day12-icon4.png) no-repeat"></a></li>
+    </ul>
+    <div class="menu-bottom" style="margin: 0 20px">
+        <i><a href="#" style="background: url(images/menu-menu.png) no-repeat"></a></i>
+        <i><a href="#" style="background: url(images/menu-set.png) no-repeat"></a></i>
+    </div>
+</nav>
+<!--菜单-->
+<nav class="secondary">
+    <div class="container">
+        <ul>
+            <span class="secondary-title">MENU<i><img src="images/menu-set.png"></i></span>
+            <li >Overview</li>
+            <li>Sales <span class="badge badge-primary">54</span></li>
+            <li>Your staff</li>
+            <li>Your staff</li>
+            <li>Your staff</li>
+            <li class="drives"></li>
+        </ul>
+        <ul>
+            <span class="secondary-title">MENU<i><img src="images/menu-set.png"></i></span>
+            <li><i class="fa fa-book"></i>&nbsp Books</li>
+            <li><i class="fa fa-video-camera"></i>&nbsp Tutorials</li>
+            <li><i class="fa fa-file-image-o"></i>&nbsp Stocks</li>
+            <li><i class="fa fa-bar-chart"></i>&nbsp Stocks</li>
+            <li class="drives"></li>
+        </ul>
+        <ul>
+            <span class="secondary-title">MENU<i><img src="images/menu-set.png"></i></span>
+            <li class="active">Messages <span class="badge badge-primary">21</span></li>
+            <li>Tutorials</li>
+            <li>NIKANBUDAO <span class="badge badge-danger rounded">!</span></li>
+            <li>Stocks</li>
+        </ul>
+        <div class="goals menu-bottom">
+            <p style="display: flex;justify-content: space-around"><span>Monthly Goals</span><span>$580/$3200</span></p>
+            <progress class="progress" value="30" max="100"></progress>
+        </div>
+    </div>
+
+</nav>
+<!--聊天部分-->
+<nav class="chat">
+    <div class="top-chat">
+        <h1 style="margin-left: 30px">Message</h1>
+        <div class="account">
+            <img src="images/chat_00.png" height="60px"">
+            <div style="margin: 10px">
+                <span class="account-name">Jodan J.</span>
+                <span class="account-status text-gray">Administrator</span>
+            </div>
+            <i class="fa fa-angle-down text-gray" style="margin: 20px 10px"></i>
+        </div>
+    </div>
+<!--    对话用户列表-->
+    <div class="aside">
+<!--        白色左边-->
+        <form action="post">
+            <label>
+                <input type="text" placeholder="Search">
+            </label>
+            <i class="fa fa-search"></i>
+        </form>
+        <ul class="chat-dialog">
+            <li class="active">
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_05.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span class="account-name">Bessie Berry</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">3m</span>
+                </div>
+                <p class="text-gray">
+                    I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...
+                    <span class="badge badge-primary">4</span>
+                </p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_03.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Bessie Berry</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">8m</span>
+                </div>
+                <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_05.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Dusrin Peae</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">Yesterday</span>
+                </div>
+                <p class="text-gray">If there is anyone who needs an invitation please add yourself in the comments of this post!</p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_02.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Bessie Berry</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">3m</span>
+                </div>
+                <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_03.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Jack Ma</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">Yesterday</span>
+                </div>
+                <p class="text-gray">BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet inside...</p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_04.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Peter Chou</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">13 Jun</span>
+                </div>
+                <p class="text-gray">Yes, p2p traffic is often filtered (QoSed). Although i do use BT on O2 wires, and in good days dl speed...</p>
+            </li>
+            <li>
+                <div class="chat-chat">
+                    <div style="display: flex;">
+                        <img src="images/chat_03.png" alt="">
+                        <div class="chat-dialog-status">
+                            <span >Bessie Berry</span>
+                            <span class="account-status text-gray">twitter</span>
+                        </div>
+                    </div>
+                    <span class="text-gray">8m</span>
+                </div>
+                <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+            </li><li>
+            <div class="chat-chat">
+                <div style="display: flex;">
+                    <img src="images/chat_03.png" alt="">
+                    <div class="chat-dialog-status">
+                        <span >Bessie Berry</span>
+                        <span class="account-status text-gray">twitter</span>
+                    </div>
+                </div>
+                <span class="text-gray">8m</span>
+            </div>
+            <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+        </li><li>
+            <div class="chat-chat">
+                <div style="display: flex;">
+                    <img src="images/chat_03.png" alt="">
+                    <div class="chat-dialog-status">
+                        <span >Bessie Berry</span>
+                        <span class="account-status text-gray">twitter</span>
+                    </div>
+                </div>
+                <span class="text-gray">8m</span>
+            </div>
+            <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+        </li><li>
+            <div class="chat-chat">
+                <div style="display: flex;">
+                    <img src="images/chat_03.png" alt="">
+                    <div class="chat-dialog-status">
+                        <span >Bessie Berry</span>
+                        <span class="account-status text-gray">twitter</span>
+                    </div>
+                </div>
+                <span class="text-gray">8m</span>
+            </div>
+            <p class="text-gray">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+        </li>
+        </ul>
+<!--        白色右边-->
+
+    </div>
+    <div class="chat-content">
+        <div class="chat-top">
+            <span>Bessie Berry</span>
+            <div class="tools">
+                <div class="btn-group">
+                    <a href="">
+                        <i class="fa fa-user-plus"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-cloud-upload"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+                <div class="chat-page">
+                    <span>1</span>
+                    <span>of </span>
+                    <span>28 </span>
+                </div>
+                <div class="btn-group">
+                    <a href="">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <ul class="open-chat">
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_05.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31  AM</span>
+                    <p>
+                        I want to explain why—and far more importantly, how we’ve made that experience interminably worse
+                        and more expensive in the name of our comfort and security. First, please consider the enormously
+                        constrained nature of satellite internet access. If you’re already familiar with this world,
+                        skip ahead a few paragraphs; but if not, permit me a brief description of the challenges.
+                    </p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_00.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31  AM</span>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto deleniti dolorem eius
+                        eos eveniet facere officia quis quisquam voluptatum!
+                    </p>
+                </div>
+            </li>
+            <li class="lines">
+                <span>Tuesday</span>
+            </li>
+
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_02.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31 AM</span>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto deleniti dolorem eius
+                        eos eveniet facere officia quis quisquam voluptatum!
+                    </p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_03.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31  AM</span>
+                    <p>
+                        That’s just the time for the signals to make two round trips to geosynchronous orbit and back.
+                        In reality, there are the times,and the re-transmission time at the satellite itself.
+                    </p>
+                    <ul style="display: flex;">
+                        <li>
+                            <img src="images/1.jpg" alt="">
+                            <div class="mask">
+                                <i class="fa fa-search-plus"></i>
+                            </div>
+                        </li>
+                        <li >
+                            <img src="images/3.jpg" alt="">
+                            <div class="mask">
+                                <i class="fa fa-search-plus"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="lines" style="border-color: #2ca0f7">
+                <span style="color: #2ca0f7">New Messages</span>
+            </li>
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_04.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31  AM</span>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto deleniti dolorem eius
+                        eos eveniet facere officia quis quisquam voluptatum!
+                    </p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="chat-1">
+                    <img src="images/chat_03.png" alt="">
+                </div>
+                <div class="chat-text">
+                    <span >Bessie Berry</span>
+                    <span class="text-gray">08:31 AM</span>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto deleniti dolorem eius
+                        eos eveniet facere officia quis quisquam voluptatum!
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <form action="post">
+            <label for="">
+                <button type="submit" >
+                    <i class="fa fa-plus"></i>
+                </button>
+                <input type="text" class="input-text" placeholder="Well, kinda both :) but more of that second option, i`ve seen many systems infected and crawling with">
+            </label>
+        </form>
+    </div>
+
+</nav>
 </body>
 </html>
