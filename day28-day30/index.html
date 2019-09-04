@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二十八天到第三十天 给爱的人发个邮件吧</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            width: 180px;
+        }
+
+        input {
+            /* padding-left: 20px; */
+            height: 40px;
+            font-size: 28px;
+            position: relative;
+        }
+
+        ::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #999;
+            font-size: 16px;
+        }
+
+        ::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #999;
+            font-size: 16px;
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #999;
+            font-size: 16px;
+        }
+
+        .email-sug {
+            list-style: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0px;
+            padding: 0px;
+            width: 344px;
+            display: none;
+            border: 1px solid #ddd;
+        }
+
+        .wrapper .email-sug li {
+            height: 32px;
+            line-height: 32px;
+            font-size: 16px;
+            text-align: left;
+            padding-left: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .wrapper .email-sug li.active {
+            background: #FF00FF;
+        }
+
+        .wrapper .email-sug li:hover {
+            background: #6495ED	;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>给爱的人发个邮件吧</h3>
+    <div>
+        <p>请输入某些奇怪的东西吧</p>
+        <img src="http://wx1.sinaimg.cn/large/ceeb653ely1g64664qyc0g20bf0br4jn.gif" >
+    </div>
+    <div class="wrapper">
+        <input id="input-email" type="text" placeholder="请输入邮箱 如abccefg@xxx.com" autofocus>
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+
+</body>
+
+<script>
+    //     一进入页面就将焦点放在输入框中
+    // 用户点击鼠标，进行提示选择后，焦点依然在输入框中
+    // 用户按ESC键的时候，对用户输入进行全选
+    // 对你还能想到的其它用户体验的方式进行优化
+
+    // 邮箱后缀List参考
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var input = document.getElementById('input-email');
+    var sugWrap = document.getElementById('email-sug-wrapper');
+    var nowSelectTipIndex = 0;
+    var tipList = [];
+    
+
+    input.oninput = function () {
+        console.log("开始阿达");
+        appendTips();
+        toggleDisplay();
+    }
+
+
+    input.onkeydown = function (e) {
+        var len = tipList.length;
+        if (e.keyCode === 38) { //向上
+            if (nowSelectTipIndex < 1) {
+                nowSelectTipIndex = len - 1;
+            } else {
+                nowSelectTipIndex--;
+            }
+            appendTips();
+        } else if (e.keyCode === 40) { //向下
+            if (nowSelectTipIndex < len - 1) {
+                nowSelectTipIndex++;
+            } else {
+                resetTipIndex();
+            }
+            appendTips();
+        } else if (e.keyCode == 13) { //enter键
+            var val = sugWrap.getElementsByTagName('li')[nowSelectTipIndex].innerHTML;
+            input.value = htmlEncode(val);
+            tipsHide();
+            resetTipIndex();
+        } else if (e.keyCode == 27) { //Esc键
+            input.select();
+        }
+    }
+
+    function getInputVal() {
+        var val = input.value;
+        var result = '';
+        for (let i = 0; i < val.length; i++) {
+            if (val[i] !== ' ' && (val[i] !== '　')) {
+                result += val[i];
+            }
+        }
+        return result;
+    }
+
+    function resetTipIndex() {
+        nowSelectTipIndex = 0;
+    }
+
+    function tipsContent() {
+        var rawVal = htmlEncode(getInputVal()); //转义
+        var domStr = '';
+        var textVal;
+        var idx = rawVal.indexOf('@');
+        var endmatch;
+        tipList = postfixList.slice();
+        if (idx !== -1) {
+            textVal = rawVal.slice(0, idx);
+            endmatch = rawVal.slice(idx + 1);
+            for (let i = 0; i < tipList.length; i++) {
+                if (tipList[i].indexOf(endmatch) !== -1) {
+                    tipList = tipList.filter((item) => {
+                        return item.indexOf(endmatch) === 0;
+                    })
+                    break;
+                }
+            }
+        } else {
+            textVal = rawVal;
+        }
+        for (let i = 0; i < tipList.length; i++) {
+            var liStyle;
+            if (i == nowSelectTipIndex) {
+                liStyle = '<li class="active">';
+            } else {
+                liStyle = '<li>';
+            }
+            domStr = domStr + liStyle + textVal + '@' + tipList[i] + '</li>';
+        }
+        return domStr;
+    }
+
+    function appendTips() {
+        var tips = tipsContent();
+        sugWrap.innerHTML = tips;
+    }
+
+    sugWrap.onclick = function (e) {
+        e.stopPropagation();
+        var val = e.target.textContent;
+        input.value = htmlEncode(val);
+        input.focus();
+        tipsHide();
+    }
+
+    function htmlEncode(html) {
+        var temp = document.createElement('div');
+        (temp.textContent != undefined) ? (temp.textContent = html) : (temp.innerText = html); //看不懂
+        var output = temp.innerHTML;
+        temp = null;
+        return output;
+    }
+
+    function toggleDisplay() {
+        var inputVal = getInputVal();
+        if (inputVal) {
+            tipsShow();
+        } else {
+            tipsHide();
+        }
+    }
+
+    function tipsShow() {
+        sugWrap.style.display = 'block';
+    }
+
+    function tipsHide() {
+        sugWrap.style.display = 'none';
+    }
+</script>
+
+</html>
