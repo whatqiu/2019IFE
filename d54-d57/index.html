@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第五十四天到第五十七天：足球小将（一）</title>
+    <style>
+        .container {
+            width: 800px;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        .container i {
+            color: aliceblue;
+            font-size: 12px;
+            font-style: normal;
+        }
+
+        @keyframes move {
+            100% {
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <svg version="1.1" id="field" baseProfile="full" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+</div>
+<script src="js/utility.js"></script>
+<script src="js/field.js"></script>
+<script src="js/player.js"></script>
+<script>
+    /* 创建球场*/
+    var svgNode = document.getElementById('field');
+    var soccerField = FieldMaker.factory('Soccer', {
+        ele: svgNode,
+        bgcolor: '#008001',
+        linecolor: '#fff',
+    });
+
+    function init(number = 5) {
+        var width = parseInt(svgNode.parentNode.offsetWidth);
+        var scale = (width / 120).toFixed(2);
+        var ChinaTeam = [];
+        var targetTeam = [];
+        var target = {};
+        var player;
+        for (let i = 0; i < number; i++) {
+            player = new Player({
+                speed: common.getRandom(1, 99)
+            });
+            ChinaTeam.push(player);
+        }
+        for (let j = 0; j < ChinaTeam.length; j++) {
+            target.x = common.getRandom(0, width - 20 * scale);
+            target.y = common.getRandom(0, 58 * scale);
+            ChinaTeam[j].run(target);
+        }
+    }
+    init(5)
+</script>
+</body>
+</html>

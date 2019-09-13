@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第三十九天到第四十一天：我是精明的小卖家（四）</title>
+</head>
+<style>
+    .container {
+        width: 600px;
+        margin: 20px auto;
+    }
+</style>
+<body>
+<div class="container">
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+
+    <button id="d">D</button>
+    <button id="e">E</button>
+    <button id="f">F</button>
+
+    <div id="contABC"></div>
+    <div id="contDEF"></div>
+</div>
+
+<script>
+    var btns = document.querySelectorAll('button');
+    btns.forEach((item) => {
+        item.onclick = function (e) {
+            window.location.hash = e.target.id;
+        }
+    })
+
+    function parseHash() {
+        var hash = window.location.hash;
+        var str = hash.slice(1);
+        return str;
+    }
+
+    function renderContent() {
+        var hash = parseHash();
+        if (!hash) return;
+        var text = document.getElementById(hash).textContent;
+        if ('contABC'.indexOf(hash.toUpperCase()) !== -1) {
+            document.getElementById('contABC').innerHTML = text;
+        } else {
+            document.getElementById('contDEF').innerHTML = text;
+        }
+
+    }
+    window.onhashchange = function () {
+        renderContent();
+    };
+    renderContent()
+</script>
+</body>
+</html>

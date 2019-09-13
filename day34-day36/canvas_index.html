@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三十一到第三十三天：我是精明的小卖家（二）</title>
+    <style>
+        .container {
+            width: 820px;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>小卖家（二）</h3>
+    <canvas id="circle" width="150" height="150"></canvas>
+    <canvas id="flower" width="200" height="200"></canvas>
+    <canvas id="text" width="150" height="150"></canvas>
+    <canvas id="clock" width="200" height="200"></canvas>
+    <canvas id="cloud" width="150" height="150"></canvas>
+</div>
+
+</body>
+<script>
+    var circle = document.getElementById('circle');
+    var flower = document.getElementById('flower');
+    var text = document.getElementById('text');
+    var clock = document.getElementById('clock');
+    var cloud = document.getElementById('cloud');
+    // 画圈圈
+    var drawCircle = circle.getContext('2d');
+    drawCircle.arc(75, 75, 60, 0, Math.PI * 2, true);
+    drawCircle.stroke();
+    //花
+    var drawFlower = flower.getContext('2d');
+    //花茎
+    drawFlower.beginPath();
+    drawFlower.moveTo(100,200);
+    drawFlower.lineTo(100,150);
+    drawFlower.closePath();
+    drawFlower.stroke();
+
+    //花朵
+    drawFlower.beginPath();
+    drawFlower.arc(100,100,50,0,Math.PI*2,true);
+    drawFlower.fillStyle = "orange";
+    drawFlower.closePath();
+    drawFlower.fill();
+
+    //花瓣
+    for (i = 0;i<17;i++) {
+        // body...
+        var flowerRad = 2 * Math.PI / 16;
+        var x = Math.cos(flowerRad * i)* 50;
+        var y = Math.sin(flowerRad * i)* 50;
+
+        var endx =  Math.cos(flowerRad * (i+1))* 50;
+        var endy =  Math.sin(flowerRad * (i+1))* 50;
+
+        drawFlower.quadraticCurveTo(100+(x+endx)/2 *1.5,100+(y+endy)/2 * 1.5,endx+100,endy+100);
+        console.log("x: "+x+"\n y: "+y+"\n endx:  " + endx+ "\n endy:  "+endy+"\n i: "+i);
+        x = endx;
+        y = endy;
+        drawFlower.strokeStyle = "blue";
+    }
+    drawFlower.stroke();
+
+    // drawFlower.beginPath();
+    // drawFlower.moveTo(150,100);
+    // drawFlower.quadraticCurveTo(200,200,100,150);
+    // drawFlower.quadraticCurveTo(0,200,50,100);
+    // drawFlower.quadraticCurveTo(0,0,100,50);
+    // drawFlower.quadraticCurveTo(200,0,150,100);
+    // drawFlower.lineWidth=2;
+    // drawFlower.strokeStyle="red";
+    // drawFlower.stroke();
+
+
+    //字
+    var drawText = text.getContext('2d');
+    drawText.font = '24px serif';
+    drawText.fillText('Hello World', 10, 50);
+
+    //时钟
+    var clock = document.getElementById('clock');
+    var drawClock = clock.getContext('2d');
+    drawClock.lineWidth = '3';
+    drawClock.arc(100, 100, 70, 0, Math.PI * 2, true);
+    drawClock.stroke();
+
+    drawClock.moveTo(100, 100);
+    drawClock.arc(100, 100, 2, 0, Math.PI * 2, true);
+    drawClock.stroke();
+
+    var hours = [3,4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+    hours.forEach((item, idx) => {
+        var rad = Math.PI / 6 * (idx);
+        var x = 100 + Math.cos(rad) * (70 - 16);
+        var y = 100 + Math.sin(rad) * (70 - 16);
+        drawClock.font = '14px';
+        drawClock.textAlign = 'center';
+        drawClock.textBaseline = "middle";
+        drawClock.fillText(item, x, y)
+    })
+    // 时针、分针
+    drawClock.beginPath();
+    drawClock.moveTo(100, 100);
+    // drawClock.rotate(Math.PI / 3);
+    var endX = 100 + Math.sin(Math.PI / 3) * 26;
+    var endY = 100 + Math.cos(Math.PI / 3) * 26;
+    drawClock.lineTo(endX, endY);
+    drawClock.lineWidth = 3;
+    drawClock.lineCap = "round";
+    drawClock.stroke();
+    drawClock.moveTo(100, 100);
+    drawClock.lineTo(100, 60);
+    drawClock.lineWidth = 2;
+    drawClock.lineCap = "round";
+    drawClock.stroke();
+
+
+    //云
+    var drawCloud = cloud.getContext('2d');
+    drawCloud.beginPath();
+
+
+</script>
+</html>
