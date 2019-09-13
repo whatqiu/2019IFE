@@ -7,7 +7,7 @@
 
 3.[第二十到第二十一天：让你和页面对话](https://whatqiu.github.io/2019IFE/day20.html)
 
-4.[第二十二天到第二十四天：JavaScript里面的居民们](https://whatqiu.github.io/2019IFE/day22/index.html)
+4.[第二十二天到第二十四天：JavaScript里面的居民们](https://whatqiu.github.io/2019IFE/d22/index.html)
 
 5.[第二十五天到第二十七天 倒数开始 滴答滴 滴答滴](https://whatqiu.github.io/2019IFE/day25-day27/index.html)
 
@@ -27,13 +27,13 @@
 
 13.[第四十七到第四十九天：开一家餐厅吧（三）](https://whatqiu.github.io/2019IFE/day47-day49/index.html)
 
-14.[第五十到第五十三天：开一家餐厅吧（四）](https://whatqiu.github.io/2019IFE/day50-day53/index.html)
+14.[第五十到第五十三天：开一家餐厅吧（四）](https://whatqiu.github.io/2019IFE/d50-d53/index.html)
 
-15.[第五十到第五十三天：足球小将（一）](https://whatqiu.github.io/2019IFE/day50-day53/index.html)
+15.[第五十四到第五十七天：足球小将（一）](https://whatqiu.github.io/2019IFE/d54-d57/index.html)
 
-16.[第五十四到第五十七天：足球小将（二）](https://whatqiu.github.io/2019IFE/day54-day57/index.html)
+16.[第五十八到第六十二天：足球小将（二）](https://whatqiu.github.io/2019IFE/d58-d62/index.html)
 
-17.[第五十八到第六十二天：足球小将（三）](https://whatqiu.github.io/2019IFE/day58-day62/index.html)
+17.[第六十三到第六十六天：足球小将（三）](https://whatqiu.github.io/2019IFE/d63-d66/index.html)
 
 ##设计师学院
 
