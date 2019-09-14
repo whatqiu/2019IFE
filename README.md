@@ -15,7 +15,7 @@
 
 7.[第三十一到第三十三天：我是精明的小卖家（一）](https://whatqiu.github.io/2019IFE/day31-day33/index.html)
 
-8.[第三十四到第三十六天：我是精明的小卖家（二）](https://whatqiu.github.io/2019IFE/day33-day36/index.html)
+8.[第三十四到第三十六天：我是精明的小卖家（二）](https://whatqiu.github.io/2019IFE/day34-day36/index.html)
 
 9.[第三十七到第三十八天：我是精明的小卖家（三）](https://whatqiu.github.io/2019IFE/day37-day38/index.html)
 
@@ -35,7 +35,7 @@
 
 17.[第六十三到第六十六天：足球小将（三）](https://whatqiu.github.io/2019IFE/d63-d66/index.html)
 
-##设计师学院
+###  设计师学院
 
 [No.1 - 制作一个简单的菜单动画效果](https://whatqiu.github.io/2019IFE/Design%20College/1.html)
 
