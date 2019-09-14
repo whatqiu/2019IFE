@@ -9,17 +9,20 @@
             margin: 0;
             height: 100%;
         }
-    .banner{
-        position: relative;
-        height: 100%;
-    }
-        .banner img{
+
+        .banner {
+            position: relative;
+            height: 100%;
+            overflow: hidden; /*不加这个的时候会有抖动*/
+        }
+
+        .banner img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
+            z-index: 0;
             overflow: hidden;
         }
 
@@ -29,8 +32,7 @@
             padding: 0;
             bottom: 200px;
             display: flex;
-            margin: 0 auto;
-            text-align: center;
+            /*margin: 0 auto;*/
             justify-content: center;
             z-index: 999;
         }
@@ -38,42 +40,119 @@
         li {
             display: flex;
             flex-direction: row;
-            padding: 0 12px;
+            margin: 0 12px;
+            position: relative;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .slider li:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #3b2153;
+            opacity: 0.5;
+            transition: opacity ease-in 0.2s;
+        }
+
+        .slider li:hover:after {
+            opacity: 0;
         }
 
         li img {
             width: 150px;
             height: 120px;
         }
+
+        .banner .no1 {
+            z-index: 1;
+        }
+
         /*图一	0——0.5	位移	left -500（px） 到left 0	缓出(ease-out)*/
-        
+        .banner .no1.active {
+            animation: animate01 0.5s ease-out 0s;
+        }
+
+        @keyframes animate01 {
+            from {
+                left: -500px;
+            }
+            to {
+                left: 0;
+            }
+        }
+
         /*图二	0——0.5	位移	top 350（px） 到top 0	缓出(ease-out)*/
+        .banner .no2.active {
+            animation: animate02 0.5s ease-out 0s;
+        }
+
+        @keyframes animate02 {
+            from {
+                top: 350px;
+            }
+            to {
+                top: 0;
+            }
+        }
 
         /*图三	0——1.0	尺寸	0.1 - 1.0	缓入(ease-in)*/
+        .banner .no3.active {
+            animation: animate03 1s ease-in 0s;
+        }
+
+        @keyframes animate03 {
+            from {
+                transform: scale(0.1);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
 
         /*图四	0——1.0	尺寸	2.0 - 1.0	缓出(ease-out)*/
+        .banner .no4.active {
+            animation: animate04 1s ease-out 0s;
+        }
+
+        @keyframes animate04 {
+            from {
+                transform: scale(2.0);
+            }
+            to {
+                transform: scale(1.0);
+            }
+        }
 
         /*图五	0——0.7	旋转	负360度到0度	缓入缓出(ease-in-out) 尺寸	0.1 - 1.0*/
+        .banner .no5.active {
+            animation: animate05 0.7s ease-in-out 0s;
+        }
 
-
-
-
-
-
-
+        @keyframes animate05 {
+            from {
+                transform: scale(0.1) rotateZ(-360deg);
+            }
+            to {
+                transform: scale(1) rotateZ(0deg);
+            }
+        }
 
     </style>
 </head>
 <body>
 
 <div class="banner">
-    <img src="images/1.jpg" alt="">
-    <img src="images/2.jpg" alt="">
-    <img src="images/3.jpg" alt="">
-    <img src="images/4.jpg" alt="">
-    <img src="images/5.jpg" alt="">
+    <img class="no1" src="images/1.jpg" alt="">
+    <img class="no2" src="images/2.jpg" alt="">
+    <img class="no3" src="images/3.jpg" alt="">
+    <img class="no4" src="images/4.jpg" alt="">
+    <img class="no5" src="images/5.jpg" alt="">
 </div>
-<ul>
+<ul class="slider">
     <li>
         <img src="images/1.jpg" alt="">
     </li>
@@ -93,6 +172,34 @@
 
 
 <script>
+    var slider = document.querySelector('.slider');
+    var imgs = document.querySelector('.banner').querySelectorAll('img');
+    var zIdx = 2;
+    slider.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+        var item = e.target;
+        var lists = Array.from(slider.querySelectorAll('li'));
+        var idx = lists.indexOf(item);
+        imgs[idx].style.zIndex = ++zIdx;  //增加xz-index
+
+        var oldClass = imgs[idx].className;  //判断当前是否active
+        if (oldClass.indexOf('active') === -1) {
+            imgs[idx].className = oldClass + ' active';
+        }
+        console.log(idx + "\n zindx: " + zIdx);
+
+        var i;
+        for (i = 0; i < imgs.length; i++) {
+            var classN = imgs[i].className;
+            if (classN.indexOf('active') !== -1 && (i !== idx)) {
+                imgs[i].className = classN.slice(0, classN.indexOf(' active'));
+            }
+        }
+
+        console.log(classN);
+
+    });
 
 </script>
 </body>
